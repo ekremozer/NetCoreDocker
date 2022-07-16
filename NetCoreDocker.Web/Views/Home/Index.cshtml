@@ -1,0 +1,28 @@
+﻿@model List<string>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<environment names="Development">
+   Environment: Development
+</environment>
+
+<environment names="Production">
+  Environment: Production
+</environment>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div>
+    <form action="/home/index" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" />
+        <input type="submit" value="Kaydet" />
+    </form>
+
+    @foreach (var image in Model)
+    {
+        <img src="~/images/@image" width="100" />
+    }
+</div>
